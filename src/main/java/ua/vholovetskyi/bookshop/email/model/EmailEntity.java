@@ -1,4 +1,4 @@
-package ua.vholovetskyi.bookshop.email.service.model;
+package ua.vholovetskyi.bookshop.email.model;
 
 import lombok.Builder;
 import lombok.Data;
@@ -41,7 +41,7 @@ public class EmailEntity {
     @Field(type = FieldType.Date)
     private Instant updatedAt;
 
-    public void updateFields(MessageStatus newStatus, String errorMessage) {
+    public void updateFields(EmailStatus newStatus, String errorMessage) {
         if (newStatus == null || status == newStatus) {
             return;
         }

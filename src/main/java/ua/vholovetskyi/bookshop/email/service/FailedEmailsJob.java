@@ -5,14 +5,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import ua.vholovetskyi.bookshop.email.service.model.EmailStatus;
+import ua.vholovetskyi.bookshop.email.model.EmailStatus;
 
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class FailedEmailsJob {
 
-    private final EmailMessageService messageService;
+    private final EmailService messageService;
 
     /**
      * Task scheduler.
@@ -25,7 +25,7 @@ public class FailedEmailsJob {
             log.info("Starting Scheduled Task...");
             var emails = messageService.findAllByStatus(EmailStatus.FAILED);
             log.info("Found failed messages to resend: {}", emails.size());
-            emails.forEach(messageService::sendMessage);
+            emails.forEach(messageService::sendEmail);
             log.info("Scheduled Task completed successfully!");
         } catch (Exception e) {
             log.error("Error executing scheduled task: {}", e.getMessage());

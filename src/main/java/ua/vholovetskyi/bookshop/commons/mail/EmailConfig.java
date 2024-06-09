@@ -1,4 +1,4 @@
-package ua.vholovetskyi.bookshop.common.mail;
+package ua.vholovetskyi.bookshop.commons.mail;
 
 public class EmailConfig {
 

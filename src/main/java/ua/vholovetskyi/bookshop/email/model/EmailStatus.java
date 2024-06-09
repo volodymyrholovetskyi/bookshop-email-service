@@ -1,4 +1,4 @@
-package ua.vholovetskyi.bookshop.email.service.model;
+package ua.vholovetskyi.bookshop.email.model;
 
 public enum EmailStatus {
     PENDING, SENT, FAILED
