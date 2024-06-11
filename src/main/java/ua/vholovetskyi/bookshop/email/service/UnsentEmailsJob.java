@@ -15,7 +15,7 @@ import ua.vholovetskyi.bookshop.email.model.EmailStatus;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class FailedEmailsJob {
+public class UnsentEmailsJob {
 
     private final EmailService messageService;
 
