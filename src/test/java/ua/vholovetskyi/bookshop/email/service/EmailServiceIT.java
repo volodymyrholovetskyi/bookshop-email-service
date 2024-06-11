@@ -11,7 +11,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import ua.vholovetskyi.bookshop.BaseElasticsearchIT;
 import ua.vholovetskyi.bookshop.email.db.EmailRepository;
 import ua.vholovetskyi.bookshop.email.model.EmailEntity;
 import ua.vholovetskyi.bookshop.email.model.EmailStatus;
@@ -28,7 +27,7 @@ import static org.mockito.Mockito.*;
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-class EmailServiceIT extends BaseElasticsearchIT {
+class EmailServiceIT extends BaseContainerIT {
 
     @Autowired
     private EmailService emailService;

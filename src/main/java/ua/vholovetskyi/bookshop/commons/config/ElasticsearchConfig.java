@@ -5,6 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
 import org.springframework.data.elasticsearch.client.elc.ElasticsearchConfiguration;
 
+/**
+ * @author Volodymyr Holovetskyi
+ * @version 1.0
+ * @since 2024-06-04
+ */
 @Configuration
 public class ElasticsearchConfig extends ElasticsearchConfiguration {
 

@@ -1,4 +1,4 @@
-package ua.vholovetskyi.bookshop.commons.mail;
+package ua.vholovetskyi.bookshop.email.service.mail;
 
 import jakarta.mail.MessagingException;
 

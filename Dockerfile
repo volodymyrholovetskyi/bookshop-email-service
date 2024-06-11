@@ -4,7 +4,7 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package
 
-FROM openjdk:17-alpine
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 ENV SPRING_PROFILES_ACTIVE=prod
 COPY --from=build /app/target/*.jar app.jar

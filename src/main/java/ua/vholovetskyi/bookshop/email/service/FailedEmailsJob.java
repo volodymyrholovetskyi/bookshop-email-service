@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import ua.vholovetskyi.bookshop.email.model.EmailStatus;
 
+/**
+ * @author Volodymyr Holovetskyi
+ * @version 1.0
+ * @since 2024-06-02
+ */
 @Slf4j
 @Component
 @RequiredArgsConstructor

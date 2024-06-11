@@ -1,4 +1,4 @@
-package ua.vholovetskyi.bookshop.commons.mail;
+package ua.vholovetskyi.bookshop.email.service.mail;
 
 import lombok.Builder;
 import lombok.Getter;

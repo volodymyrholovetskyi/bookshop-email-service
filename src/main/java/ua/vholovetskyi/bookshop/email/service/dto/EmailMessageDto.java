@@ -1,21 +1,21 @@
 package ua.vholovetskyi.bookshop.email.service.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Map;
+
+/**
+ * @author Volodymyr Holovetskyi
+ * @version 1.0
+ * @since 2024-06-03
+ */
 @Data
 @Builder
 public class EmailMessageDto {
 
-    @Email(message = "{email.invalidFormat}")
-    @NotBlank(message = "{email.isBlank}")
     private String to;
-
-    @NotBlank(message = "{email.isBlank}")
     private String subject;
-
-    @NotBlank(message = "{email.isBlank}")
-    private String content;
+    private Map<String, Object> body;
+    private String templateName;
 }
