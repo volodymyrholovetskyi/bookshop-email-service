@@ -1,7 +1,12 @@
-# Book Shop
+# Email Service
 
+* [General info](#general-info)
 * [Technologies](#technologies)
 * [Set-up](#set-up)
+
+## General Info
+
+Service for sending emails.
 
 ## Technologies
 - Java 17
@@ -16,4 +21,4 @@
 - Docker
 
 ## Set-up
-- > ```docker-compose up -d```
+> Run app: `docker-compose up -d`
