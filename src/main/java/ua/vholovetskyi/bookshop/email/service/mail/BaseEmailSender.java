@@ -1,8 +1,8 @@
-package ua.vholovetskyi.bookshop.commons.mail;
+package ua.vholovetskyi.bookshop.email.service.mail;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.StreamUtils;
-import ua.vholovetskyi.bookshop.commons.exception.EmailTemplateException;
+import ua.vholovetskyi.bookshop.commons.exception.TemplateException;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -48,7 +48,7 @@ public abstract class BaseEmailSender implements EmailSender {
         try {
             return StreamUtils.copyToString(resource.getInputStream(), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new EmailTemplateException(templateName, e);
+            throw new TemplateException(templateName, e);
         }
     }
 }
