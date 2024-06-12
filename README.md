@@ -21,4 +21,5 @@ Service for sending emails.
 - Docker
 
 ## Set-up
-> Run app: `docker-compose up -d`
+1. Create network: ```docker network create email-service-network```
+2. Run docker compose: ```docker-compose up -d```
