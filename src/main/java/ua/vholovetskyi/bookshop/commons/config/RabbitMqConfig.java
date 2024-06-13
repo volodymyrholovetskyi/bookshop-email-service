@@ -18,30 +18,30 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMqConfig {
 
-    @Value("${rabbitmq.queue.email}")
-    private String emailQueue;
+    @Value("${rabbitmq.queue.notification}")
+    private String notificationQueue;
 
-    @Value("${rabbitmq.exchange.email}")
-    private String emailExchange;
+    @Value("${rabbitmq.exchange.notification}")
+    private String notificationExchange;
 
-    @Value("${rabbitmq.binding.email}")
-    private String emailRoutingKey;
+    @Value("${rabbitmq.binding.notification}")
+    private String notificationRoutingKey;
 
     @Bean
-    public Queue emailQueue() {
-        return new Queue(emailQueue, true);
+    public Queue notificationQueue() {
+        return new Queue(notificationQueue, true);
     }
 
     @Bean
-    public TopicExchange emailExchange() {
-        return new TopicExchange(emailExchange);
+    public TopicExchange notificationExchange() {
+        return new TopicExchange(notificationExchange);
     }
 
     @Bean
-    public Binding emailBinding() {
-        return BindingBuilder.bind(emailQueue())
-                .to(emailExchange())
-                .with(emailRoutingKey);
+    public Binding notificationBinding() {
+        return BindingBuilder.bind(notificationQueue())
+                .to(notificationExchange())
+                .with(notificationRoutingKey);
     }
 
     @Bean

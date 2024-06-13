@@ -16,10 +16,10 @@ public class ElasticsearchConfig extends ElasticsearchConfiguration {
     @Value("${elasticsearch.url}")
     private String url;
 
-    @Value("${elasticsearch.username}")
+    @Value("${spring.elasticsearch.username}")
     private String username;
 
-    @Value("${elasticsearch.password}")
+    @Value("${spring.elasticsearch.password}")
     private String password;
 
     public ClientConfiguration clientConfiguration() {

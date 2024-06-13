@@ -1,4 +1,4 @@
-package ua.vholovetskyi.bookshop.email.model;
+package ua.vholovetskyi.bookshop.notification.model;
 
 import lombok.Builder;
 import lombok.Data;
@@ -17,8 +17,8 @@ import java.util.Map;
  */
 @Data
 @Builder
-@Document(indexName = "email")
-public class EmailEntity {
+@Document(indexName = "notifications")
+public class NotificationEntity {
 
     @Id
     private String id;
@@ -36,7 +36,7 @@ public class EmailEntity {
     private String templateName;
 
     @Field(type = FieldType.Keyword)
-    private EmailStatus status;
+    private NotificationStatus status;
 
     @Field(type = FieldType.Text)
     private String errorMessage;
@@ -50,7 +50,7 @@ public class EmailEntity {
     @Field(type = FieldType.Date)
     private Instant updatedAt;
 
-    public void updateFields(EmailStatus newStatus, String errorMessage) {
+    public void updateFields(NotificationStatus newStatus, String errorMessage) {
         if (newStatus == null){
            throw new IllegalArgumentException("Status cannot be null");
         }

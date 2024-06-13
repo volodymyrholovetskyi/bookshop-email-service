@@ -1,4 +1,4 @@
-# Email Service
+# Notification Service
 
 * [General info](#general-info)
 * [Technologies](#technologies)
@@ -6,7 +6,7 @@
 
 ## General Info
 
-Service for sending emails.
+Service for sending notifications.
 
 ## Technologies
 - Java 17
@@ -15,17 +15,14 @@ Service for sending emails.
 - Elasticsearch
 - RabbitMQ
 - Kibana
-- JUnit 5, Mockito, Testcontainers
+- Testcontainers
 - Lombok
 - Maven
 - Docker
 
 ## Set-up
-1. Create network: 
-```
-docker network create email-service-network
-```
-2. Run docker compose: 
+
+Run docker compose: 
 ```
 docker-compose up -d
 ```

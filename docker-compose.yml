@@ -13,7 +13,7 @@ services:
       - '${RABBITMQ_PORT}:5672'
       - '15672:15672'
     networks:
-      - email-service-network
+      - notification-network
 
   elasticsearch:
     image: elasticsearch:8.6.1
@@ -30,13 +30,13 @@ services:
     ports:
       - '${ELASTIC_PORT}:9200'
     networks:
-      - email-service-network
+      - notification-network
 
   kibana:
     image: kibana:8.6.1
     container_name: kibana
     networks:
-      - email-service-network
+      - notification-network
     env_file: ./.env
     environment:
       - ELASTICSEARCH_URL=${ELASTIC_HOST}
@@ -48,14 +48,14 @@ services:
     depends_on:
       - elasticsearch
 
-  email-service-app:
-    image: vholovetskyi/email-service-app:1.0
-    container_name: email-service-app
+  notification-service:
+    image: vholovetskyi/notification-service:1.0
+    container_name: notification-service
     restart: on-failure
     networks:
-      - email-service-network
+      - notification-network
     ports:
-      - '${EMAIL_SERVICE_PORT}:8080'
+      - '${NOTIFICATION_SERVICE_PORT}:8080'
     depends_on:
       - elasticsearch
     env_file: ./.env
@@ -75,4 +75,5 @@ volumes:
  kibana_data:
 
 networks:
-  email-service-network:
+  notification-network:
+

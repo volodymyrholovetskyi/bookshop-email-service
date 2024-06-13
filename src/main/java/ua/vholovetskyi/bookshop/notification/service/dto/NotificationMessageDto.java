@@ -1,20 +1,20 @@
-package ua.vholovetskyi.bookshop.email.service.mail;
+package ua.vholovetskyi.bookshop.notification.service.dto;
 
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 
 import java.util.Map;
 
 /**
  * @author Volodymyr Holovetskyi
  * @version 1.0
- * @since 2024-06-04
+ * @since 2024-06-03
  */
+@Data
 @Builder
-@Getter
-public class EmailDetailsDto {
+public class NotificationMessageDto {
+
     private String to;
-    private String from;
     private String subject;
     private Map<String, Object> body;
     private String templateName;

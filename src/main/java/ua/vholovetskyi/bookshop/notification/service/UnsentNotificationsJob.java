@@ -1,11 +1,11 @@
-package ua.vholovetskyi.bookshop.email.service;
+package ua.vholovetskyi.bookshop.notification.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import ua.vholovetskyi.bookshop.email.model.EmailStatus;
+import ua.vholovetskyi.bookshop.notification.model.NotificationStatus;
 
 /**
  * @author Volodymyr Holovetskyi
@@ -15,22 +15,22 @@ import ua.vholovetskyi.bookshop.email.model.EmailStatus;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class UnsentEmailsJob {
+public class UnsentNotificationsJob {
 
-    private final EmailService messageService;
+    private final NotificationService messageService;
 
     /**
      * Task scheduler.
-     * Search and tries to resend a message with a FAILED status.
+     * Search and tries to resend notifications.
      */
     @Transactional
-    @Scheduled(cron = "${app.email.failed-cron}")
+    @Scheduled(cron = "${app.notification.failed-cron}")
     public void run() {
         try {
             log.info("Starting Scheduled Task...");
-            var emails = messageService.findAllByStatus(EmailStatus.FAILED);
-            log.info("Found failed messages to resend: {}", emails.size());
-            emails.forEach(messageService::sendEmail);
+            var notifications = messageService.findAllByStatus(NotificationStatus.FAILED);
+            log.info("Found failed notifications to resend: {}", notifications.size());
+            notifications.forEach(messageService::sendNotification);
             log.info("Scheduled Task completed successfully!");
         } catch (Exception e) {
             log.error("Error executing scheduled task: {}", e.getMessage());
