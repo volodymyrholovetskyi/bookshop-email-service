@@ -23,10 +23,10 @@ public class RabbitMqListener {
     /**
      * Receives data from the notification-queue.
      *
-     * @param email received data.
+     * @param notificationDto received data.
      */
     @RabbitListener(queues = "${rabbitmq.queue.notification}", concurrency = "5")
-    public void handleEmailMessage(final NotificationMessageDto email) {
-        notificationService.saveNotification(createNewNotification(email));
+    public void handleEmailMessage(final NotificationMessageDto notificationDto) {
+        notificationService.saveNotification(createNewNotification(notificationDto));
     }
 }
