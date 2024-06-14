@@ -12,8 +12,6 @@ services:
     ports:
       - '${RABBITMQ_PORT}:5672'
       - '15672:15672'
-    networks:
-      - notification-network
 
   elasticsearch:
     image: elasticsearch:8.6.1
@@ -29,14 +27,10 @@ services:
       - elastic_data:/usr/share/elasticsearch/data
     ports:
       - '${ELASTIC_PORT}:9200'
-    networks:
-      - notification-network
 
   kibana:
     image: kibana:8.6.1
     container_name: kibana
-    networks:
-      - notification-network
     env_file: ./.env
     environment:
       - ELASTICSEARCH_URL=${ELASTIC_HOST}
@@ -52,8 +46,6 @@ services:
     image: vholovetskyi/notification-service:1.0
     container_name: notification-service
     restart: on-failure
-    networks:
-      - notification-network
     ports:
       - '${NOTIFICATION_SERVICE_PORT}:8080'
     depends_on:
@@ -75,5 +67,7 @@ volumes:
  kibana_data:
 
 networks:
-  notification-network:
+  default:
+   name: notification-network
+   driver: bridge
 
