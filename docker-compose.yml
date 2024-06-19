@@ -1,5 +1,4 @@
 version: '3.9'
-
 services:
   rabbitmq:
     image: rabbitmq:3-management-alpine
@@ -52,7 +51,7 @@ services:
       - elasticsearch
     env_file: ./.env
     environment:
-      - ELASTICSEARCH_URL=${ELASTIC_HOST}
+      - ELASTICSEARCH_URL=${ELASTIC_HOST}:${ELASTIC_PORT}
       - SPRING_RABBITMQ_HOST=${RABBITMQ_HOST}
       - SPRING_RABBITMQ_PORT=${RABBITMQ_PORT}
       - ELASTICSEARCH_USERNAME=${ELASTIC_USERNAME}
