@@ -39,10 +39,10 @@ NOTIFICATION_SERVICE_PORT=9090
 KIBANA_PORT=5601
 ```
 - Add your properties for connecting to the gmail server:
-  - SENDER_MAIL_ADDRESS=
-  - SENDER_MAIL_PASSWORD=
+  - `SENDER_MAIL_ADDRESS`
+  - `SENDER_MAIL_PASSWORD`
 - Properties `ELASTIC_TOKEN` is used to connect to kibana.
-- You can generate a token in Postman add username and password (Basic Auth) and url (POST method):
+- You can generate a `token` in Postman add username and password (Basic Auth) and url (POST method):
 ```
 http://localhost:9200/_security/service/elastic/kibana/credential/token/forkibana
 ```
